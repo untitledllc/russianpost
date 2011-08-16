@@ -39,7 +39,7 @@ navbar.add(viewTitle);
 
 var nearbut = Titanium.UI.createButton({
 	borderRadius: 3,
-	top: 140,
+	top: 160,
 	height:40,
 	width: 261,
 	backgroundImage: 'images/nearest.png',
@@ -83,7 +83,7 @@ zmei.add(labelzmei);
 
 var addressbut = Titanium.UI.createButton({
 	borderRadius: 3,
-	top: 188,
+	top: 208,
 	height:40,
 	//width: '88%',
 	width: 261,
