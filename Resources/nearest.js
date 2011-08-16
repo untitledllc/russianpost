@@ -96,12 +96,34 @@ var labcatoptions3 = {
 };
 
 var data = [{
-	title:'ул. Всякая, д.1 корп.3',
+	title:'Варшавское шоссе, д. 37',
 	header:'До 1км',
 	m: '300м',
+	index: '117127',
+	tel: '8 (499) 782-24-32',
+	latitude: 55.689125,
+	longitude: 37.623410,
+	times: 'пн-пт. с 9 до 18, сб. c 10 до 17',
 	hasChild: true
 },{
-	title:'ул. Разная, д.32',
+	title:'Варшавское шоссе д.18 к.2',
+	index: '117105',
+	latitude: 55.691337,
+	longitude: 37.620229,
+	tel: '8 (495) 954-85-71',
+	times: 'пн-пт. с 9 до 18, сб. c 10 до 17',
+	hasChild: true
+},{
+	title:'Севастопольский пр. д.11 к.1',
+	index: '117152',
+	tel: '8 (499) 123-80-00',
+	latitude: 55.690558,
+	longitude: 37.607145,
+	times: 'пн-пт. с 9 до 18, сб. c 10 до 17',
+	m: '4,2км',
+	hasChild: true
+},{
+	title:'ул. Всякая, д.1 корп.3',
 	m: '420м',
 	hasChild: true
 },{
@@ -118,10 +140,6 @@ var data = [{
 	m: '1,7км',
 	hasChild: true
 },{
-	title:'ул. Таганская, д.4/2',
-	m: '2,3км',
-	hasChild: true
-},{
 	title:'пер. Незаметный, д.2',
 	m: '2,8м',
 	hasChild: true
@@ -129,10 +147,6 @@ var data = [{
 	title:'ул. Непроходимая, д.66',
 	header:'До 5км',
 	m: '3км',
-	hasChild: true
-},{
-	title:'ул. Надежды , д.11 к.4',
-	m: '4,2км',
 	hasChild: true
 }
 ];
@@ -179,7 +193,11 @@ tableview.addEventListener('click', function(e) {
 	winm.url = 'postinfo.js';
 	winm.o = win.o;
 	winm.ttl = e.rowData.title;
-
+    winm.index = e.rowData.index;
+    winm.tel = e.rowData.tel;
+    winm.latitude = e.rowData.latitude;
+    winm.times = e.rowData.times; 
+    winm.longitude = e.rowData.longitude;
 	winm.open();
 
 });
