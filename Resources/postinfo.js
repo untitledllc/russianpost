@@ -111,8 +111,8 @@ var scrollView = Titanium.UI.createScrollableView({
 	height: 120
 });
 
-var i=1;
-var activeView = view1;
+var i=0;
+var activeView = viewFoto;
 
 // scrollView.addEventListener('scroll', function(e) {
 	// activeView = e.view;  // the object handle to the view that is about to become visible
@@ -218,12 +218,12 @@ var lablelcatoptions1 = {
 // label options for the name
 var lablelcatoptions2 = {
 	textAlign:'left',
-	left: 2,
+	
 	font: {
-		fontSize:13
+		fontSize:12.5
 	},
 	wordWrap: true,
-	color: '#0c224d'
+	color: '#000'
 };
 
 var lab1 = Ti.UI.createLabel(lablelcatoptions1);
@@ -231,20 +231,48 @@ lab1.text = 'Адрес:';
 lab1.bottom = 110;
 viewAdrs.add(lab1);
 
+if (win.ttl != null){
+var labAdrs = Ti.UI.createLabel(lablelcatoptions2);
+labAdrs.text = 'г. Москва ' + win.ttl;
+labAdrs.bottom = 110;
+labAdrs.left = 65,
+viewAdrs.add(labAdrs);
+}
+
 var lab2 = Ti.UI.createLabel(lablelcatoptions1);
 lab2.text = 'Часы работы:';
 lab2.bottom = 50;
 viewAdrs.add(lab2);
+
+var labTime = Ti.UI.createLabel(lablelcatoptions2);
+labTime.text = win.times;
+labTime.bottom = 50;
+labTime.left = 109;
+viewAdrs.add(labTime);
+
 
 var lab3 = Ti.UI.createLabel(lablelcatoptions1);
 lab3.text = 'Индекс:';
 lab3.bottom = -20;
 viewAdrs.add(lab3);
 
+var labInd = Ti.UI.createLabel(lablelcatoptions2);
+labInd.text = win.index;
+labInd.bottom = -20;
+labInd.left = 70;
+viewAdrs.add(labInd);
+
 var lab4 = Ti.UI.createLabel(lablelcatoptions1);
 lab4.text = 'Телефон:';
 lab4.bottom = -90;
 viewAdrs.add(lab4);
+
+var labTel = Ti.UI.createLabel(lablelcatoptions2);
+labTel.text = win.tel;
+labTel.bottom = -90;
+labTel.left = 80;
+viewAdrs.add(labTel);
+
 
 var bmap = Titanium.UI.createButton({
 	height:35,
@@ -258,8 +286,12 @@ var bmap = Titanium.UI.createButton({
 // close_button listener
 bmap.addEventListener('click', function() {
 	var winmap = Titanium.UI.createWindow(win.o.content);
-	winmap.url = 'map.js';
+	winmap.url = 'mapsingle.js';
 	winmap.o = win.o;
+	winmap.latitude = win.latitude;
+	winmap.longitude = win.longitude;
+	winmap.ttl = win.ttl;
+	winmap.index = win.index;
 	winmap.open();
 });
 viewAdrs.add(bmap);
