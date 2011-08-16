@@ -1,6 +1,7 @@
 var win = Ti.UI.currentWindow;
 win.backgroundImage = 'images/simple_fon.png';
 
+
 var navbar = Ti.UI.createView({
 	width: '100%',
 	height: 43,
@@ -81,11 +82,21 @@ var labelzmei = Ti.UI.createLabel({
 zmei.add(labelzmei);
 win.add(zmei);
 
+var viewButtons = Ti.UI.createView({
+	//backgroundColor: 'blue',
+	width: 280,
+	height: 210,
+	top: 120
+});
+
+win.add(viewButtons);
+
 var regionfield  = Titanium.UI.createTextField({
 	color:'#797979',
 	height:35,
 	width: 270,
-	top: 139,
+	//top: 139,
+	top: 19,
 	borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
 	keyboardType:Titanium.UI.KEYBOARD_DEFAULT,
 	//returnKeyType:Titanium.UI.RETURNKEY_NEXT,
@@ -95,65 +106,191 @@ var regionfield  = Titanium.UI.createTextField({
 var regflag = false;
 regionfield.addEventListener('change', function() {
 	//if (regflag == false) {
-		winm = Ti.UI.createWindow(win.o.content);
-		winm.url = 'select.js';
-		winm.o = win.o;
-		winm.ch = regionfield.value;
-		winm.open();
-		regflag = true;
-		
+	winm = Ti.UI.createWindow(win.o.content);
+	winm.url = 'select.js';
+	winm.o = win.o;
+	winm.ch = regionfield.value;
+	winm.open();
+	regflag = true;
+
 	//}
 	//if ()
 });
- Ti.App.addEventListener('passCity', function(event) {
-	 Ti.API.info(event.passCityValue);
-	 regionfield.value = event.passCityValue;
-	// //event.passCityValue;	
-	 regflag = true;
- });
-win.add(regionfield);
+regionfield.addEventListener('focus', function() {
+	zmei.animate({	
+		duration: 600,
+		height: 5,
+	//	right: 320,
+		opacity: 0.1
+	});
+
+	viewButtons.animate({
+		duration: 600,
+		top : 38
+	});
+});
+regionfield.addEventListener('return', function() {
+	zmei.animate({
+	//	left: 320,
+		opacity: 1.0,
+		duration: 600,
+		height: 76
+	});
+
+	viewButtons.animate({
+		duration: 600,
+		top : 120
+	});
+});
+Ti.App.addEventListener('passCity', function(event) {
+	Ti.API.info(event.passCityValue);
+	regionfield.value = event.passCityValue;
+	// //event.passCityValue;
+	regflag = true;
+	// zmei.animate({
+		// duration: 600,
+		// height: 76,
+		// left: 350,
+		// //widht: 10,
+		// opacity: 1.0
+		// //transition:Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
+	// });
+// 
+	// viewButtons.animate({
+		// duration: 600,
+		// top : 120
+	// });
+});
+viewButtons.add(regionfield);
 
 var raionfield  = Titanium.UI.createTextField({
 	color:'#797979',
 	height:35,
 	width: 270,
-	top: 186,
+	top: 66,
+	//top: 186,
 	borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
 	keyboardType:Titanium.UI.KEYBOARD_DEFAULT,
 	//returnKeyType:Titanium.UI.RETURNKEY_NEXT,
 	hintText: 'район',
 	autocorrect: false
 });
+raionfield.addEventListener('focus', function() {
+	zmei.animate({
+		duration: 600,
+		height: 5,
+	//	right: 320,
+		//widht: 10,
+		opacity: 0.1
+	});
 
-win.add(raionfield);
+	viewButtons.animate({
+		duration: 600,
+		top : 38
+	});
+});
+raionfield.addEventListener('return', function() {
+	zmei.animate({
+		duration: 600,
+		height: 76,
+	//	left: 320,
+		//widht: 10,
+		opacity: 1.0
+	});
+
+	viewButtons.animate({
+		duration: 600,
+		top : 120
+	});
+});
+viewButtons.add(raionfield);
 
 var punktfield  = Titanium.UI.createTextField({
 	color:'#797979',
 	height:35,
 	width: 270,
-	top: 233,
+	//top: 233,
+	top: 113,
 	borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
 	keyboardType:Titanium.UI.KEYBOARD_DEFAULT,
 	//returnKeyType:Titanium.UI.RETURNKEY_NEXT,
 	hintText: 'населенный пункт',
 	autocorrect: false
 });
+punktfield.addEventListener('focus', function() {
+	zmei.animate({
+		duration: 600,
+		height: 5,
+	//	right: 320,
+		//widht: 10,
+		opacity: 0.1
+		//transition:Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
+	});
 
-win.add(punktfield);
+	viewButtons.animate({
+		duration: 600,
+		top : 38
+	});
+});
+punktfield.addEventListener('return', function() {
+	zmei.animate({
+		duration: 600,
+		height: 76,
+	//	left: 320,
+		//widht: 10,
+		opacity: 1.0
+	});
+
+	viewButtons.animate({
+		duration: 600,
+		top : 120
+	});
+});
+viewButtons.add(punktfield);
 
 var streetfield  = Titanium.UI.createTextField({
 	color:'#797979',
 	height:35,
 	width: 270,
-	top: 280,
+	//top: 280,
+	top: 160,
 	borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
 	keyboardType:Titanium.UI.KEYBOARD_DEFAULT,
 	//returnKeyType:Titanium.UI.RETURNKEY_NEXT,
 	hintText: 'улица',
 	autocorrect: false
 });
+streetfield.addEventListener('focus', function() {
+	zmei.animate({
+		duration: 600,
+		height: 5,
+	//	right: 320,
+		//widht: 10,
+		opacity: 0.1
+		//transition:Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
+	});
 
-win.add(streetfield);
+	viewButtons.animate({
+		duration: 600,
+		top : 38
+	});
+});
+streetfield.addEventListener('return', function() {
+	zmei.animate({
+		duration: 600,
+		height: 76,
+	//	left: 320,
+		//widht: 10,
+		opacity: 1.0
+		//transition:Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
+	});
+
+	viewButtons.animate({
+		duration: 600,
+		top : 120
+	});
+});
+viewButtons.add(streetfield);
 
 var searchbut = Titanium.UI.createButton({
 	bottom: 37,
@@ -165,9 +302,9 @@ var searchbut = Titanium.UI.createButton({
 });
 
 searchbut.addEventListener('click', function(e) {
-	// var winnear = Titanium.UI.createWindow(win.o.content);
-	// winnear.url = 'searchbut.js';
-	// winnear.o = win.o;
-	// winnear.open();
+	var winadrs = Titanium.UI.createWindow(win.o.content);
+	winadrs.url = 'postinfo.js';
+	winadrs.o = win.o;
+	winadrs.open();
 });
 win.add(searchbut);
