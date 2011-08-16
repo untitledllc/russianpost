@@ -98,6 +98,7 @@ var labcatoptions3 = {
 var data = [{
 	title:'Варшавское шоссе, д. 37',
 	header:'До 1км',
+	name: 'Москва 127',
 	m: '300м',
 	index: '117127',
 	tel: '8 (499) 782-24-32',
@@ -108,6 +109,7 @@ var data = [{
 },{
 	title:'Варшавское шоссе д.18 к.2',
 	index: '117105',
+	name: 'Москва 105',
 	latitude: 55.691337,
 	longitude: 37.620229,
 	tel: '8 (495) 954-85-71',
@@ -116,6 +118,7 @@ var data = [{
 },{
 	title:'Севастопольский пр. д.11 к.1',
 	index: '117152',
+	name: 'Москва 152',
 	tel: '8 (499) 123-80-00',
 	latitude: 55.690558,
 	longitude: 37.607145,
@@ -198,6 +201,7 @@ tableview.addEventListener('click', function(e) {
     winm.latitude = e.rowData.latitude;
     winm.times = e.rowData.times; 
     winm.longitude = e.rowData.longitude;
+    winm.name = e.rowData.name;
 	winm.open();
 
 });
