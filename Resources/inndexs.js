@@ -26,8 +26,8 @@ var titleLabel = Titanium.UI.createLabel({
 	},
 	// shadowColor:'#151f12',
 	// shadowOffset: {
-		// x:1,
-		// y:1
+	// x:1,
+	// y:1
 	// },
 	text: 'По индексу'
 });
@@ -106,9 +106,9 @@ var searchbut = Titanium.UI.createButton({
 });
 
 searchbut.addEventListener('click', function(e) {
-	// var winnear = Titanium.UI.createWindow(win.o.content);
-	// winnear.url = 'searchbut.js';
-	// winnear.o = win.o;
-	// winnear.open();
+	var winadrs = Titanium.UI.createWindow(win.o.content);
+	winadrs.url = 'postinfo.js';
+	winadrs.o = win.o;
+	winadrs.open();
 });
 win.add(searchbut);
