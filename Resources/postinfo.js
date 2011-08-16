@@ -30,8 +30,14 @@ var titleLabel = Titanium.UI.createLabel({
 		// x:1,
 		// y:1
 	// },
-	text: 'Информация'
+	
 });
+
+if (win.name!=null) {
+	titleLabel.text = win.name;
+} else {
+	titleLabel.text = 'Информация'
+}
 
 // associate label to title
 viewTitle.add(titleLabel);
@@ -51,13 +57,16 @@ bcloset.addEventListener('click', function() {
 	win.close();
 });
 navbar.add(bcloset);
+var viewFoto = Ti.UI.createView();
+if (win.index=='117127') {
+	viewFoto.backgroundImage = 'images/fotoMain.jpg';
+} else {
+	viewFoto.backgroundImage = 'images/foto1.jpg';
+}
 
-var viewFoto = Ti.UI.createView({
-	backgroundImage: 'images/foto.jpg'
-});
 
 var view1 = Ti.UI.createView({
-	backgroundColor:'red'
+	backgroundImage: 'images/foto.jpg'
 });
 var l1 = Ti.UI.createLabel({
 	text:'View 1',
@@ -104,7 +113,8 @@ var scrollView = Titanium.UI.createScrollableView({
 	views:[viewFoto,view1,view2,view3,view4],
 	//showPagingControl:true,
 	top: 56,
-	width: '68%',
+	//width: '68%',
+	width: 228,
 	//pagingControlHeight:30,
 	maxZoomScale:2.0,
 	currentPage:0,
