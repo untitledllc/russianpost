@@ -49,7 +49,7 @@ var nearbut = Titanium.UI.createButton({
 
 nearbut.addEventListener('click', function(e) {
 	var winnear = Titanium.UI.createWindow(win.o.content);
-	winnear.url = 'nearest.js';
+	winnear.url = 'nearindex.js';
 	winnear.o = win.o;
 	winnear.open();
 });
