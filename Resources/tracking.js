@@ -104,10 +104,10 @@ var searchbut = Titanium.UI.createButton({
 });
 
 searchbut.addEventListener('click', function(e) {
-	// var winnear = Titanium.UI.createWindow(win.o.content);
-	// winnear.url = 'searchbut.js';
-	// winnear.o = win.o;
-	// winnear.open();
+	var winnear = Titanium.UI.createWindow(win.o.content);
+	winnear.url = 'findpost.js';
+	winnear.o = win.o;
+	winnear.open();
 });
 win.add(searchbut);
 
